@@ -1,3 +1,6 @@
+pub mod problems;
+pub mod common;
+
 #[derive(Debug)]
 pub struct RunConfig {
     problem: u16,

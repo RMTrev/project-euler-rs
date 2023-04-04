@@ -1,4 +1,5 @@
 use project_euler_rs::RunConfig;
+use project_euler_rs::problems::run_problem;
 
 use std::env;
 use std::process;
@@ -11,4 +12,6 @@ fn main() {
     });
 
     println!("{:?}", config);
+
+    run_problem(config);
 }
