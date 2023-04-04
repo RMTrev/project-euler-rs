@@ -121,3 +121,24 @@ impl Prime {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_prime_iterator() {
+        let first_primes = vec![2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71];
+        let mut prime_iter = Prime::new();
+
+        for p in first_primes {
+            let test_p = match prime_iter.next() {
+                Some(v) => v,
+                None => {
+                    panic!("This should not happen!");
+                }
+            };
+            assert_eq!(test_p, p);
+        }
+    }
+}
