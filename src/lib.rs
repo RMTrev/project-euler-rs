@@ -44,7 +44,3 @@ impl RunConfig {
         })
     }
 }
-
-pub fn run_problem(config: RunConfig) {
-
-}
