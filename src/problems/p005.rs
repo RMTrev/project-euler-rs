@@ -8,12 +8,15 @@ pub fn run(_: RunConfig) {
     let mut result: u64 = 1;
 
     loop {
+        // get next prime
         let p = sieve.next().unwrap();
 
+        // if passed the limit, stop
         if p > LIMIT {
             break;
         }
 
+        // get the highest power for the prime that's still below the limit
         let mut mult = p;
         loop {
             let temp = mult * p;
@@ -23,6 +26,7 @@ pub fn run(_: RunConfig) {
             mult = temp;
         }
 
+        // apply multiplier to result
         result *= mult;
     }
 
