@@ -4,21 +4,27 @@ mod p011; mod p012;
 
 use super::RunConfig;
 
+type Action = fn(RunConfig) -> ();
+
+static PROBLEMS: &'static [Action] = &[
+    p001::run,
+    p002::run,
+    p003::run,
+    p004::run,
+    p005::run,
+    p006::run,
+    p007::run,
+    p008::run,
+    p009::run,
+    p010::run,
+    p011::run,
+    p012::run,
+];
+
 pub fn run_problem(config: RunConfig) {
-    match config.problem {
-        1 => p001::run(config),
-        2 => p002::run(config),
-        3 => p003::run(config),
-        4 => p004::run(config),
-        5 => p005::run(config),
-        6 => p006::run(config),
-        7 => p007::run(config),
-        8 => p008::run(config),
-        9 => p009::run(config),
-        10 => p010::run(config),
-        11 => p011::run(config),
-        12 => p012::run(config),
-        _ => {
+    match PROBLEMS.get((config.problem as usize) - 1) {
+        Some(act) => act(config),
+        None => {
             println!("Problem {} not implemented", config.problem);
             ()
         }
