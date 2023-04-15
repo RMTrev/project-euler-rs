@@ -1,6 +1,6 @@
 mod p001; mod p002; mod p003; mod p004; mod p005;
 mod p006; mod p007; mod p008; mod p009; mod p010;
-mod p011;
+mod p011; mod p012;
 
 use super::RunConfig;
 
@@ -17,6 +17,7 @@ pub fn run_problem(config: RunConfig) {
         9 => p009::run(config),
         10 => p010::run(config),
         11 => p011::run(config),
+        12 => p012::run(config),
         _ => {
             println!("Problem {} not implemented", config.problem);
             ()

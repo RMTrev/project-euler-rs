@@ -9,9 +9,9 @@ static DIGITS: usize = 13;
 /// Find the thirteen adjacent digits in the 1000 digit number that have the greatest product.
 ///
 /// NOTE: the usage for this problem is:
-/// ```
-/// cargo run 8 filename
-/// ```
+///
+/// `cargo run 8 filename`
+///
 /// where `filename` is the path to a text file containing the 1000 digit number. The data
 /// provided by Project Euler is located in `data/p008-big-number.txt`.
 pub fn run(config: RunConfig) {

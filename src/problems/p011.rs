@@ -10,9 +10,9 @@ use std::cmp::Ordering;
 /// (up, down, left, right, or diagonally)?
 ///
 /// NOTE: the usage for this problem is:
-/// ```
-/// cargo run 11 filename
-/// ```
+///
+/// `cargo run 11 filename`
+///
 /// where `filename` is the path to a text file containing the grid. The data provided by Project
 /// Euler is located in `data/p011-grid.txt`.
 pub fn run(config: RunConfig) {

@@ -122,6 +122,32 @@ impl Prime {
     }
 }
 
+pub struct TriangleNumber {
+    curr: u64,
+    index: u64,
+}
+
+impl Iterator for TriangleNumber {
+    type Item = u64;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let returning = self.curr + self.index;
+        self.index += 1;
+        self.curr = returning;
+
+        Some(returning)
+    }
+}
+
+impl TriangleNumber {
+    pub fn new() -> TriangleNumber {
+        TriangleNumber {
+            curr: 0,
+            index: 1,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -139,6 +165,22 @@ mod tests {
                 }
             };
             assert_eq!(test_p, p);
+        }
+    }
+
+    #[test]
+    fn test_triangle_iterator() {
+        let first_entries = vec![1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66, 78, 91, 105, 120, 136, 153, 171, 190, 210, 231, 253, 276, 300, 325, 351, 378, 406, 435, 465, 496, 528, 561, 595, 630, 666];
+        let mut t_iter = TriangleNumber::new();
+
+        for t in first_entries {
+            let test_tn = match t_iter.next() {
+                Some(v) => v,
+                None => {
+                    panic!("This should not happen!");
+                }
+            };
+            assert_eq!(test_tn, t);
         }
     }
 }
